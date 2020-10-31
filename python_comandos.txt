@@ -4,3 +4,4 @@ python -m pip install --upgrade pip
 pip freeze (muestra librerias)
 pip install -r .\requirements.txt (instalar librerias)
 python .\manage.py runserver(subir aplicacion levantar pagina y ver como se ejecuta)
+python .\manage.py migrate(migrar librerias que aun no lo hacen)
