@@ -8,4 +8,5 @@ git branch : Muestra la Rama
 git clone [URL]: Clona Repositorio de Git en Computador
 git checkout -b [Nombre Reama]: Crea Rama
 git mv [old_filename] [new_filename] : Renombra Archivo
+git clone [URL] -b [Nombre Rama] --single-branch : Clona Repositorio de rama especificada
 ***************************************************************
