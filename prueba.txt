@@ -9,4 +9,6 @@ git clone [URL]: Clona Repositorio de Git en Computador
 git checkout -b [Nombre Reama]: Crea Rama
 git mv [old_filename] [new_filename] : Renombra Archivo
 git clone [URL] -b [Nombre Rama] --single-branch : Clona Repositorio de rama especificada
+git show-branch: Ver los commit Realizados
+git push origin --delete [rama_a_borrar] : borrar ramas remotos
 ***************************************************************
