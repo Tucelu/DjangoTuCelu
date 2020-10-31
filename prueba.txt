@@ -7,4 +7,5 @@ git push -u origin [Nombre de la Rama]: Sube datos a GitHud
 git branch : Muestra la Rama
 git clone [URL]: Clona Repositorio de Git en Computador
 git checkout -b [Nombre Reama]: Crea Rama
+git mv [old_filename] [new_filename] : Renombra Archivo
 ***************************************************************
