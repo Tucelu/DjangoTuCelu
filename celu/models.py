@@ -3,12 +3,12 @@ from django.utils import timezone
 
 # Create your models here.
 
-class Celulares(models.Model):
+class Celular(models.Model):
     receptor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     modelo = models.CharField(max_length=200)
-    marca = models.TextField()
-    sistemaoperativo = models.TextField()
-    color = models.TextField()
+    marca = models.TextField(max_length=30)
+    sistemaoperativo = models.TextField(max_length=100)
+    color = models.TextField(max_length=15)
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
     fecharecepcion = models.DateField(blank=True, null=True)
