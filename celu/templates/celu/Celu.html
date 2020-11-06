@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuCelu: Probando TuCelu</title>
-</head>
-<body>
-    <h1>Celulares</h1>
+{% extends 'celu/base.html' %}
+{% block content %}
     {% for cel in celu %}
-    <div>
-        <p>Fecha Recepción: {{ cel.fecharecepcion }}</p>
-        <h2><a href="#">Modeo: {{ cel.modelo }}</a></h2>
-        <h3>Marca: {{ cel.marca }}</h3>
-        <h3>Colo: {{ cel.color }}</h3>
-    </div>
+        <div class="post">
+            <!--
+            <h1>Celulares</h1>
+
+            <p>Fecha Recepción: {{ cel.fecharecepcion }}</p>
+            <h2><a href="#">Modeo: {{ cel.modelo }}</a></h2>
+            <h3>Marca: {{ cel.marca }}</h3>
+            <h3>Color: {{ cel.color }}</h3>
+        -->
+
+        </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
