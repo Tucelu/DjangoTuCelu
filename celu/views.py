@@ -5,10 +5,12 @@ from django.utils import timezone
 
 # Create your views here.
 
-def celu_home(request):
+def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
-def celu_list(request):
-    celu = Celular.objects.all()
-    return render(request, 'celu/Celu.html', {'celu': celu})
+def Acce_list(request):
+    return render(request, 'celu/Accesorios.html')
+
+def Celu_list(request):
+    return render(request, 'celu/Celu.html')
 

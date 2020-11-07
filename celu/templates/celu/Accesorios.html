@@ -1,1 +1,59 @@
-<h1>Hola Me completan por favor!!!!</h1>
+{% extends 'celu/base.html' %}
+{% load static %}
+{% block content %}
+<div class="album py-5">
+    <h1>Catálogo de Accesorios</h1>        
+    <div class="container">
+        <div class="row">                     
+            <div class="col-md-4">
+               <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'picture/accesorios/foto1.png' %}" class="Imagentelefonos" >
+                    <div class="card-body">
+                        <p class="card-text" _msthash="1893060" _msttexthash="14015339">Audifonos Iphone</p>
+                    </div>  
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'picture/accesorios/foto2.png' %}" class="Imagentelefonos" >
+                     <div class="card-body">
+                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">Cargador Samsung</p>
+                     </div>  
+                 </div>
+             </div>
+             <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'picture/accesorios/foto3.png' %}" class="Imagentelefonos" >
+                     <div class="card-body">
+                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">Cable USB</p>
+                     </div>  
+                 </div>
+             </div>
+             <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'picture/accesorios/foto4.png' %}" class="Imagentelefonos" >
+                     <div class="card-body">
+                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">Batería Portátil</p>
+                     </div>  
+                 </div>
+             </div>
+             <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'picture/accesorios/foto5.png' %}" class="Imagentelefonos" >
+                     <div class="card-body">
+                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">Apple Airpods</p>
+                     </div>  
+                 </div>
+             </div>
+             <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'picture/accesorios/foto6.png' %}" class="Imagentelefonos" >
+                     <div class="card-body">
+                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">Carcasa IPhone</p>
+                     </div>  
+                 </div>
+             </div>                           
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuCelu: Smartphones and Tablets</title>
+    <title>TuCelu: Smartphones & Accesorios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap_theme.mim.css">
     <link rel="stylesheet" href="{% static 'css/celu.css' %}">
@@ -23,13 +23,13 @@
                   <a>TuCelu.Cl - </a>
                 </li> 
                 <li class="nav-item">
-                  <a class="nav-link" href="Tucelu.html">Inicio</a>
+                  <a class="nav-link" href="{% url 'Celu_Home' %}">Inicio</a>
                  </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Accesorios.html">Accesorios</a>    
+                  <a class="nav-link" href="{% url 'Acce_list' %}">Accesorios</a>    
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Celu.html">Celulares</a>
+                  <a class="nav-link" href="{% url 'Celu_list' %}">Celulares</a>
                 </li>
               </ul>
               <form class="form-inline mt-2 mt-md-0">
