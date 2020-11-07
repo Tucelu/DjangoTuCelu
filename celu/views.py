@@ -14,5 +14,5 @@ def Acce_list(request):
 def Celu_list(request):
     return render(request, 'celu/Celu.html')
 
-def Login_list(request):
+def Login_list2(request):
     return render(request, 'celu/Login.html')
