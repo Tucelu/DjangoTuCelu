@@ -3,7 +3,7 @@
 {% block content %}
 <div>
   <div id="Formulario_login">
-    <form action="" class="formulario">
+    <form action="" class="formulario" method="POST">
       {% csrf_token %}
         <h1 class="formulario__titulo">Ingresar</h1>
         <br>
@@ -12,7 +12,11 @@
         <label for="" class="formulario__label">Nombre de Usuario</label>
         <input type="password" class= "formulario__input" name = 'password'>
         <label for="" class="formulario__label">Contraseña</label>
-        <input type="submit" class= "formulario__submit" value="Ingresar" onclick="login()">
+        <input type="submit" class= "formulario__submit" value="Login">
+        {% if form.errors %}
+        <label for="" class="formulario__label" style="color:#FF0000" >Usuario o contraseña incorrecta.</label>
+        {% endif %}
+
         <button type="button" id="Registrar">¿No tienes cuenta?</button>
     </form>
   </div>
@@ -21,15 +25,13 @@
         <h1 class="formulario__titulo">Registro</h1>
         <br>
         <br>
-        <input type="username" class= "formulario__input">
+        <input type="username" class= "formulario__input" name = 'username'>
         <label for="" class="formulario__label">Nombre</label>
-        <input type="email" class= "formulario__input">
-        <label for="" class="formulario__label">Correo</label>
-        <input type="password" class= "formulario__input">
+        <input type="password" class= "formulario__input" name = 'password'>
         <label for="" class="formulario__label">Contraseña</label>
-        <input type="password" class= "formulario__input">
+        <input type="password" class= "formulario__input" name = 'password'>
         <label for="" class="formulario__label">Confirmar Contraseña </label>
-        <input type="submit" class= "formulario__submit" value="Registrar" onclick="registro()">
+        <input type="submit" class= "formulario__submit" value=Register>
         <button type="button" id="Loguearse">Ya tengo Cuenta</button> 
     </form>
   </div>
