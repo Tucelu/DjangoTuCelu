@@ -1,1 +1,36 @@
-<h1>Hola Me completan por favor!!!!</h1>
+{% extends 'celu/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+  <div id="Formulario_login">
+    <form action="" class="formulario">
+        <h1 class="formulario__titulo">Ingresar</h1>
+        <br>
+        <br>
+        <input type="email" class= "formulario__input">
+        <label for="" class="formulario__label">Correo</label>
+        <input type="password" class= "formulario__input">
+        <label for="" class="formulario__label">Constraseña</label>
+        <input type="submit" class= "formulario__submit" value="Ingresar" onclick="login()">
+        <button type="button" id="Registrar">¿No tienes cuenta?</button>
+    </form>
+  </div>
+  <div id="Formulario_Registro">
+    <form action="" class="formulario">
+        <h1 class="formulario__titulo">Registro</h1>
+        <br>
+        <br>
+        <input type="username" class= "formulario__input">
+        <label for="" class="formulario__label">Nombre</label>
+        <input type="email" class= "formulario__input">
+        <label for="" class="formulario__label">Correo</label>
+        <input type="password" class= "formulario__input">
+        <label for="" class="formulario__label">Constraseña</label>
+        <input type="password" class= "formulario__input">
+        <label for="" class="formulario__label">Confirmar Contraseña </label>
+        <input type="submit" class= "formulario__submit" value="Registrar" onclick="registro()">
+        <button type="button" id="Loguearse">Ya tengo Cuenta</button> 
+    </form>
+  </div>
+</div>
+{%endblock%}
