@@ -4,12 +4,13 @@
 <div>
   <div id="Formulario_login">
     <form action="" class="formulario">
+      {% csrf_token %}
         <h1 class="formulario__titulo">Ingresar</h1>
         <br>
         <br>
-        <input type="email" class= "formulario__input">
-        <label for="" class="formulario__label">Correo</label>
-        <input type="password" class= "formulario__input">
+        <input type="username" class= "formulario__input" name = 'username'>
+        <label for="" class="formulario__label">Nombre de Usuario</label>
+        <input type="password" class= "formulario__input" name = 'password'>
         <label for="" class="formulario__label">Constraseña</label>
         <input type="submit" class= "formulario__submit" value="Ingresar" onclick="login()">
         <button type="button" id="Registrar">¿No tienes cuenta?</button>
