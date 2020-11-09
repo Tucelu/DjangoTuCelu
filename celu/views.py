@@ -64,7 +64,6 @@ def Registro(request):
         if form.is_valid():
             # Creamos la nueva cuenta de usuario
             user = form.save()
-
             # Si el usuario se crea correctamente 
             if user is not None:
                 # Hacemos el login manualmente
