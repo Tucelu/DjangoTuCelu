@@ -6,9 +6,10 @@ from django.utils import timezone
 class Celular(models.Model):
     receptor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     modelo = models.CharField(max_length=200)
-    marca = models.TextField(max_length=30)
-    sistemaoperativo = models.TextField(max_length=100)
-    color = models.TextField(max_length=15)
+    marca = models.CharField(max_length=200)
+    sistemaoperativo = models.CharField(max_length=200)
+    color = models.CharField(max_length=200)
+    color = models.TextField()
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
     fecharecepcion = models.DateField(blank=True, null=True)

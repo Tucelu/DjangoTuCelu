@@ -18,7 +18,8 @@ def Acce_list(request):
     return render(request, 'celu/Accesorios.html')
 
 def Celu_list(request):
-    return render(request, 'celu/Celu.html')
+    celulares = Celular.objects.all()
+    return render(request, 'celu/Celu.html', {'celulares': celulares})
 
 def Registro(request):
     return render(request, 'celu/Registro.html')
