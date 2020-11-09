@@ -1,0 +1,28 @@
+{% extends 'celu/base.html' %}
+{% load static %}
+{%block background%}
+<body background="{% static 'picture/common/Fondo_LoginReg.jpg'%}">
+{%endblock%}
+
+{% block content %}
+<div>
+  <div id="Formulario_login">
+    <form action="" class="formulario" method="POST">
+      {% csrf_token %}
+        <h1 class="formulario__titulo">Ingresar</h1>
+        <br>
+        <br>
+        <input type="username" class= "formulario__input" name = 'username'>
+        <label for="" class="formulario__label">Nombre de Usuario</label>
+        <input type="password" class= "formulario__input" name = 'password'>
+        <label for="" class="formulario__label">Contraseña</label>
+        <input type="submit" class= "formulario__submit" value="Login">
+        {% if form.errors %}
+        <label for="" class="formulario__label" style="color:#FF0000" >Usuario o contraseña incorrecta.</label>
+        {% endif %}
+
+        <button type="button" id="Registrar">¿No tienes cuenta?</button>
+    </form>
+  </div>
+</div>
+{%endblock%}
