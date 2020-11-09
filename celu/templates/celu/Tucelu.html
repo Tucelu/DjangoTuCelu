@@ -1,5 +1,8 @@
 {% extends 'celu/base.html' %}
 {% load static %}
+{%block background%}
+<body background="{% static 'picture/common/Fondo-blanco.jpg'%}">
+{%endblock%}
 {% block content %}
 <div class="Carrusel">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
