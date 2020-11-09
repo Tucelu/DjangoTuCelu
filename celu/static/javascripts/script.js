@@ -1,11 +1,9 @@
 $('#Formulario_login').show();
-$('#Formulario_Registro').hide();
 
 $('#Registrar').click(function (){
-    $("#Formulario_login").hide();
-    $('#Formulario_Registro').show();
+    location.href ="Registro";
 });
 $('#Loguearse').click(function (){
-    $("#Formulario_login").show();
-    $('#Formulario_Registro').hide();
+    location.href ="Login_list2";
 });
+
