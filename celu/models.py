@@ -8,11 +8,12 @@ class Celular(models.Model):
     modelo = models.CharField(max_length=200)
     marca = models.CharField(max_length=200)
     sistemaoperativo = models.CharField(max_length=200)
-    color = models.CharField(max_length=200)
+    color = models.CharField(max_length=50)
     descripcion = models.TextField(max_length=200, null=True)
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
     fecharecepcion = models.DateField(blank=True, null=True)
+    foto = models.ImageField(upload_to='picture/celulares')
 
     def publish(self):
         self.fecharecepcion = timezone.now()
