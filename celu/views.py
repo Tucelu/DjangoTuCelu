@@ -6,7 +6,6 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
-from celu.models import Accesorios
 
 
 
@@ -15,14 +14,11 @@ from celu.models import Accesorios
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
+def Acce_list(request):
+    return render(request, 'celu/Accesorios.html')
 
 def Celu_list(request):
-    celulares = Celular.objects.all()
-    return render(request, 'celu/Celu.html', {'celulares': celulares})
-
-def Acce_list(request):
-    accesorios = Accesorios.objects.all()
-    return render(request, 'celu/Accesorios.html', {'accesorios': accesorios})
+    return render(request, 'celu/Celu.html')
 
 def Registro(request):
     return render(request, 'celu/Registro.html')
