@@ -9,7 +9,7 @@ class Celular(models.Model):
     marca = models.CharField(max_length=200)
     sistemaoperativo = models.CharField(max_length=200)
     color = models.CharField(max_length=200)
-    color = models.TextField()
+    descripcion = models.TextField(max_length=200, null=True)
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
     fecharecepcion = models.DateField(blank=True, null=True)
