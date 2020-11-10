@@ -13,7 +13,7 @@ class Celular(models.Model):
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
     fecharecepcion = models.DateField(blank=True, null=True)
-    foto = models.ImageField(upload_to= 'static/picture/celulares')
+    foto = models.ImageField(upload_to= 'Celulares')
 
     def publish(self):
         self.fecharecepcion = timezone.now()

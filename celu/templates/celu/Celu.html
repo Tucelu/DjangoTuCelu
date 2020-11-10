@@ -11,14 +11,13 @@
             {%for celular in celulares%}
                 <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                        <img src="{{ celular.foto.url }}" class="Imagentelefonos" >
+                        <img src= "{{ celular.foto.url }}" class="Imagentelefonos" >
                         <div class="card-body">
                             <p class="card-text" _msthash="1893060" _msttexthash="14015339">{{  celular.modelo  }}</p>
                         </div> 
                     </div>
                 </div>
             {% endfor %}
-
         </div>
     </div>
 </div>
