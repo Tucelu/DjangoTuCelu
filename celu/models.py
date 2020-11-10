@@ -38,5 +38,5 @@ class Accesorios(models.Model):
         self.save()
 
     def __str__(self):
-        return self.modelo
+        return self.Nombre
 
