@@ -7,7 +7,7 @@ class Celular(models.Model):
     receptor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     modelo = models.CharField(max_length=200)
     marca = models.CharField(max_length=200)
-    sistemaoperativo = models.CharField(max_length=200)
+    sistemaoperativo = models.CharField(max_length=150)
     color = models.CharField(max_length=50)
     descripcion = models.TextField(max_length=200, null=True)
     cantidad = models.IntegerField()
