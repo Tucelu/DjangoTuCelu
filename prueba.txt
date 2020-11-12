@@ -12,3 +12,5 @@ git clone [URL] -b [Nombre Rama] --single-branch : Clona Repositorio de rama esp
 git show-branch: Ver los commit Realizados
 git push origin --delete [rama_a_borrar] : borrar ramas remotos
 ***************************************************************
+
+ssh-keygen -t rsa -b 4096 "mail": genera llave para carga en pythonanywhere
