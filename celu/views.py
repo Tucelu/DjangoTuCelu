@@ -5,8 +5,8 @@ from django.utils import timezone
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
 from django.shortcuts import redirect
-from django.contrib import messages
 from celu.models import Accesorios
+from .forms import PersonaForm
 
 
 
@@ -14,6 +14,9 @@ from celu.models import Accesorios
 
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
+
+def Perfil(request):
+    return render(request, 'celu/Perfil.html')
 
 
 def Celu_list(request):
@@ -24,8 +27,6 @@ def Acce_list(request):
     accesorios = Accesorios.objects.all()
     return render(request, 'celu/Accesorios.html', {'accesorios': accesorios})
 
-def Registro(request):
-    return render(request, 'celu/Registro.html')
 
 def Login_list2(request):
     form = AuthenticationForm()
@@ -60,10 +61,10 @@ def logout(request):
     
 def Registro(request):
     # Creamos el formulario de autenticación vacío
-    form = UserCreationForm()
+    form = PersonaForm()
     if request.method == "POST":
         # Añadimos los datos recibidos al formulario
-        form = UserCreationForm(data=request.POST)
+        form = PersonaForm(data=request.POST)
         # Si el formulario es válido...
         if form.is_valid():
             # Creamos la nueva cuenta de usuario
