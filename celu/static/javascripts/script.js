@@ -6,11 +6,6 @@ $('#Editar').click(function (){
     $('#Editar_Perfil').show();
 });
 
-$('#Editar').click(function (){
-    $("#Perfil").hide();
-    $('#Editar_Perfil').show();
-});
-
 $('#Registrar').click(function (){
     location.href ="Registro";
 });

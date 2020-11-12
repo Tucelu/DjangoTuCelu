@@ -7,6 +7,7 @@ from django.contrib.auth import login as do_login, logout as do_logout, authenti
 from django.shortcuts import redirect
 from celu.models import Accesorios
 from .forms import PersonaForm
+from django.contrib.auth.models import User
 
 
 
@@ -14,9 +15,6 @@ from .forms import PersonaForm
 
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
-
-def Perfil(request):
-    return render(request, 'celu/Perfil.html')
 
 
 def Celu_list(request):
@@ -78,3 +76,22 @@ def Registro(request):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
+
+def PerfilEdit(request, user_id):
+    # Recuperamos la instancia de la persona
+    instancia = User.objects.get(id = user_id)
+    # Creamos el formulario de autenticación vacío
+    form = PersonaForm(instance = instancia)
+    if request.method == "POST":
+        # Actualizamos el formulario con los datos recibidos
+        form = PersonaForm(request.POST, instance=instancia)
+        # Si el formulario es válido...
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo,
+            # así conseguiremos una instancia para manejarla
+            instancia = form.save(commit=False)
+            instancia.save()
+
+
+    # Si llegamos al final renderizamos el formulario
+    return render(request, "celu/Perfil.html", {'form': form})

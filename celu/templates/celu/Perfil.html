@@ -17,11 +17,13 @@
   <div id="Editar_Perfil">
     <form action="" class="formulario" method="POST">
       {% csrf_token %}
-        <h1 class="formulario__titulo">Registro</h1>
+        <h1 class="formulario__titulo">Editar</h1>
         <br>
         <br>
         <input type="username" class= "formulario__input" name = 'username'>
         <label for="" class="formulario__label">Nombre de Usuario</label>
+        <input type="email" class= "formulario__input" name = 'email'>
+        <label for="" class="formulario__label">Email</label>
         <input type="password" class= "formulario__input" name = 'password1'>
         <label for="" class="formulario__label">Contraseña</label>
         <input type="password" class= "formulario__input" name = 'password2'>
@@ -30,7 +32,6 @@
         {% if form.errors %}
         <label for="" class="formulario__label" style="color:#FF0000" >Usuario no valido o contraseñas no identicas.</label>
         {% endif %}
-        <button type="button" id="Perfil">Guardar</button> 
     </form>
   </div>
 </div>
