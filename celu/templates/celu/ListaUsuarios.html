@@ -8,19 +8,25 @@
 <div>
   <div id="Formulario_login">
     <form action="" class="formulario">
-      <h1 class="formulario__titulo">Lista de usuarios</h1>
-      <br><br><br><br><br><br>
+      {%if user.is_superuser == 1%}
+        <h1 class="formulario__titulo">Lista de usuarios</h1>
+        <br><br><br><br><br><br>
       
-      {%for usuario in usuario %}
-      <label for="" class="formulario__label">{{ usuario.username }} 
-      <a href="/Delete/{{ usuario.id }}" 
-      onClick="return confirm('¿Seguro que quieres borrar a {{persona.nombre}}?');">
-        Borrar
-      </a>
-    </label>
-      <br>
-      {%endfor%}
-
+        {%for usuario in usuario %}
+          {%if usuario.is_superuser == 0 %}
+          
+          <label for="" class="formulario__label">{{ usuario.username }} 
+          <a href="/Delete/{{ usuario.id }}" 
+          onClick="return confirm('¿Seguro que quieres borrar a {{usuario.username}}?');">
+            Borrar
+          </a>
+          </label>
+          <br>
+          {%endif%}
+        {%endfor%}
+      {%else%}
+      <h1 class="formulario__titulo">No tienes acceso a esta funcion</h1>
+      {%endif%}
     </form>
   </div>
 </div>

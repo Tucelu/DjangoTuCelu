@@ -9,6 +9,8 @@ from celu.models import Accesorios
 from .forms import PersonaForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from celu import forms
+from django.contrib import messages
 
 
 
@@ -56,7 +58,8 @@ def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
-    
+
+# C = Create
 def Registro(request):
     # Creamos el formulario de autenticación vacío
     form = PersonaForm()
@@ -77,12 +80,13 @@ def Registro(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
 
+#R = READ
 @login_required
 def ListaUsuarios(request):
     usuario = User.objects.all()
     context = {'usuario': usuario}
     return render(request, 'celu/ListaUsuarios.html', context)  
-     
+#U = UPDATE
 @login_required
 def PerfilEdit(request, user_id):
     # Recuperamos la instancia de la persona
@@ -103,6 +107,8 @@ def PerfilEdit(request, user_id):
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Perfil.html", {'form': form})
 
+#D = DELETE
+@login_required
 def delete(request, user_id):
     # Recuperamos la instancia de la persona y la borramos
     instancia = User.objects.get(id=user_id)
