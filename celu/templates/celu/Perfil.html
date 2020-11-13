@@ -11,7 +11,12 @@
       <h1 class="formulario__titulo">Perfil</h1>
       <br>
       <br>
+<<<<<<< HEAD
       <button type="button" id="Editar">Editar</button>
+=======
+      <button type="button" class="btn btn-success" id="Editar">Editar</button>
+      <a href="{% url 'logout' %}" class="btn btn-success">Cerrar sesion</a>
+>>>>>>> Ariel
     </div>
   </div>
   <div id="Editar_Perfil">
@@ -28,7 +33,11 @@
         <label for="" class="formulario__label">Contraseña</label>
         <input type="password" class= "formulario__input" name = 'password2'>
         <label for="" class="formulario__label">Confirmar Contraseña </label>
+<<<<<<< HEAD
         <input type="submit" class= "formulario__submit" value=Register>
+=======
+        <input type="submit" class= "formulario__submit" value="Guardar Cambios">
+>>>>>>> Ariel
         {% if form.errors %}
         <label for="" class="formulario__label" style="color:#FF0000" >Usuario no valido o contraseñas no identicas.</label>
         {% endif %}

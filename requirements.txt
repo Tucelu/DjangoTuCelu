@@ -1,5 +1,9 @@
 asgiref==3.2.10
+<<<<<<< HEAD
 Django==3.1
+=======
+Django==2.2.7
+>>>>>>> Ariel
 numpy==1.19.1
 Pillow==8.0.1
 pygame==1.9.6
