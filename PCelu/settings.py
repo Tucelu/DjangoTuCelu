@@ -27,12 +27,8 @@ SECRET_KEY = 'kcqo24u6e$^%izvbyuaq9^^=z54#3h&74lt-nb2hg@!-mf)jji'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'https://www.pythonanywhere.com/'
-]
-
+# ALLOWED_HOSTS = [    'localhost',    '127.0.0.1',    'https://www.pythonanywhere.com/']
+ALLOWED_HOSTS = [ '*' ]
 
 # Application definition
 
@@ -124,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'celu/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 MEDIA_URL = '/Celulares/'
