@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from celu.models import Accesorios
 from .forms import PersonaForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -76,7 +77,7 @@ def Registro(request):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
-
+@login_required
 def PerfilEdit(request, user_id):
     # Recuperamos la instancia de la persona
     instancia = User.objects.get(id = user_id)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path, os
+from django.urls import reverse_lazy
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -128,3 +129,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 MEDIA_URL = '/Celulares/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
+
+LOGIN_URL= reverse_lazy('Login_list2')

@@ -29,6 +29,7 @@
         <input type="password" class= "formulario__input" name = 'password2'>
         <label for="" class="formulario__label">Confirmar Contraseña </label>
         <input type="submit" class= "formulario__submit" value=Register>
+        <a href="{% url 'logout' %}" class="btn btn-success">Cerrar sesion</a>
         {% if form.errors %}
         <label for="" class="formulario__label" style="color:#FF0000" >Usuario no valido o contraseñas no identicas.</label>
         {% endif %}
