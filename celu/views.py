@@ -5,8 +5,9 @@ from django.utils import timezone
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
 from django.shortcuts import redirect
-from django.contrib import messages
 from celu.models import Accesorios
+from .forms import PersonaForm
+from django.contrib.auth.models import User
 
 
 
@@ -24,8 +25,6 @@ def Acce_list(request):
     accesorios = Accesorios.objects.all()
     return render(request, 'celu/Accesorios.html', {'accesorios': accesorios})
 
-def Registro(request):
-    return render(request, 'celu/Registro.html')
 
 def Login_list2(request):
     form = AuthenticationForm()
@@ -60,10 +59,10 @@ def logout(request):
     
 def Registro(request):
     # Creamos el formulario de autenticación vacío
-    form = UserCreationForm()
+    form = PersonaForm()
     if request.method == "POST":
         # Añadimos los datos recibidos al formulario
-        form = UserCreationForm(data=request.POST)
+        form = PersonaForm(data=request.POST)
         # Si el formulario es válido...
         if form.is_valid():
             # Creamos la nueva cuenta de usuario
@@ -77,3 +76,22 @@ def Registro(request):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
+
+def PerfilEdit(request, user_id):
+    # Recuperamos la instancia de la persona
+    instancia = User.objects.get(id = user_id)
+    # Creamos el formulario de autenticación vacío
+    form = PersonaForm(instance = instancia)
+    if request.method == "POST":
+        # Actualizamos el formulario con los datos recibidos
+        form = PersonaForm(request.POST, instance=instancia)
+        # Si el formulario es válido...
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo,
+            # así conseguiremos una instancia para manejarla
+            instancia = form.save(commit=False)
+            instancia.save()
+
+
+    # Si llegamos al final renderizamos el formulario
+    return render(request, "celu/Perfil.html", {'form': form})
