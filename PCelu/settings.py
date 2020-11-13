@@ -131,3 +131,5 @@ MEDIA_URL = '/Celulares/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
 
 LOGIN_URL= reverse_lazy('Login_list2')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
