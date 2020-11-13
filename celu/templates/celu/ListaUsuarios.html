@@ -12,11 +12,12 @@
       <br><br><br><br><br><br>
       
       {%for usuario in usuario %}
-      <label for="" class="formulario__label">{{ usuario.username }}</label>
-      <a class="boton_eliminar" href="/Delete/{{ usuario.id }}" 
+      <label for="" class="formulario__label">{{ usuario.username }} 
+      <a href="/Delete/{{ usuario.id }}" 
       onClick="return confirm('¿Seguro que quieres borrar a {{persona.nombre}}?');">
         Borrar
       </a>
+    </label>
       <br>
       {%endfor%}
 
