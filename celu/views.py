@@ -17,7 +17,6 @@ from django.contrib.auth.decorators import login_required
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
-
 def Celu_list(request):
     celulares = Celular.objects.all()
     return render(request, 'celu/Celu.html', {'celulares': celulares})
@@ -77,6 +76,13 @@ def Registro(request):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
+
+@login_required
+def ListaUsuarios(request):
+    usuario = User.objects.all()
+    context = {'usuario': usuario}
+    return render(request, 'celu/ListaUsuarios.html', context)  
+     
 @login_required
 def PerfilEdit(request, user_id):
     # Recuperamos la instancia de la persona
@@ -96,3 +102,11 @@ def PerfilEdit(request, user_id):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Perfil.html", {'form': form})
+
+def delete(request, user_id):
+    # Recuperamos la instancia de la persona y la borramos
+    instancia = User.objects.get(id=user_id)
+    instancia.delete()
+
+    # Después redireccionamos de nuevo a la lista
+    return redirect('/')

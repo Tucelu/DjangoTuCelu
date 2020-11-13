@@ -11,4 +11,6 @@ urlpatterns = [
     path('Registro', views.Registro, name='Registro'),
     path('PerfilEdit/<int:user_id>', views.PerfilEdit, name='PerfilEdit'),
     path('Logout', views.logout, name='logout'),
+    path('ListaUsuarios', views.ListaUsuarios, name='ListaUsuarios'),
+    path('Delete/<int:user_id>', views.delete, name='Delete'),
 ]
