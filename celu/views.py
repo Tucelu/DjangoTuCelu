@@ -8,10 +8,7 @@ from django.shortcuts import redirect
 from celu.models import Accesorios
 from .forms import PersonaForm
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-=======
 from django.contrib.auth.decorators import login_required
->>>>>>> Ariel
 
 
 
@@ -20,10 +17,6 @@ from django.contrib.auth.decorators import login_required
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Ariel
 def Celu_list(request):
     celulares = Celular.objects.all()
     return render(request, 'celu/Celu.html', {'celulares': celulares})
@@ -84,8 +77,6 @@ def Registro(request):
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Registro.html", {'form': form})
 
-<<<<<<< HEAD
-=======
 @login_required
 def ListaUsuarios(request):
     usuario = User.objects.all()
@@ -93,7 +84,6 @@ def ListaUsuarios(request):
     return render(request, 'celu/ListaUsuarios.html', context)  
      
 @login_required
->>>>>>> Ariel
 def PerfilEdit(request, user_id):
     # Recuperamos la instancia de la persona
     instancia = User.objects.get(id = user_id)
@@ -112,8 +102,6 @@ def PerfilEdit(request, user_id):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "celu/Perfil.html", {'form': form})
-<<<<<<< HEAD
-=======
 
 def delete(request, user_id):
     # Recuperamos la instancia de la persona y la borramos
@@ -122,4 +110,3 @@ def delete(request, user_id):
 
     # Después redireccionamos de nuevo a la lista
     return redirect('/')
->>>>>>> Ariel
