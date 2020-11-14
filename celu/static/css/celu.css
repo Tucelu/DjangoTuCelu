@@ -109,3 +109,37 @@ body{
 .icono_agregar{
     height: 1cm;
 }
+.Producto_D{
+    position: relative;
+    height: 11cm;
+    width: 11cm;
+    border: solid;
+    border-color: black;
+    margin-top: 7cm;
+    margin-bottom: 40%;
+    margin-left: 10%;
+    margin-right: 30%;
+}
+.container2{
+    margin-top: 7cm;
+    margin-bottom: 7cm;
+
+}
+.imagen_detalle{
+    height: 11cm;
+    width: 11cm;
+    border: solid;
+    border-color: black;
+}
+.borde_detalles{
+    border: solid;
+    border-color:  gray;
+    font-style: oblique;
+    font-size: 20px;
+}
+.nombre_centrado{
+    text-align: center;
+}
+.titulo_arriba{
+    padding-bottom: 3cm;
+}

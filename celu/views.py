@@ -21,17 +21,22 @@ def Celu_home(request):
 
 def Prod_list(request):
     productos = Producto.objects.all()
-    return render(request, 'celu/Productos.html', {'productos': productos}
-    )
+    return render(request, 'celu/Productos.html', {'productos': productos})
+
+def Detalle_producto(request):
+    return render(request, 'celu/Detalle_producto.html')
 
 def Prod_list_Celular(request):
     productos = Producto.objects.filter(Tipo = 1)
-    return render(request, 'celu/Productos.html', {'productos': productos}
-    )
+    return render(request, 'celu/Productos.html', {'productos': productos})
+
 def Prod_list_Accesorio(request):
     productos = Producto.objects.filter(Tipo = 2)
-    return render(request, 'celu/Productos.html', {'productos': productos}
-    )
+    return render(request, 'celu/Productos.html', {'productos': productos})
+
+def Detalle_producto(request, Producto_id):
+    producto = Producto.objects.filter(id = Producto_id)
+    return render(request, 'celu/Detalle_producto.html', {'producto': producto})
 
 
 

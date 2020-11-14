@@ -1,0 +1,56 @@
+{% extends 'celu/base.html' %}
+{% load static %}
+{%block background%}
+<body background="{% static 'picture/common/Fondo-blanco.jpg'%}">
+{%endblock%}
+{% block content %}
+{%for producto in producto%}
+<div class="container container2">
+    <!-- Page Heading -->
+    <div class="row nombre_centrado titulo_arriba">
+      <div class="col-12">
+        <h1 class="page-header">{{ producto.nombre }}</h1>
+      </div>
+    </div>
+    <!-- /.row -->
+  
+    <div class="row nombre_centrado">
+      <div class="col-lg-6 mb-2">
+        <div class="">
+          <div class="main-product-image">
+            <img src="{{ producto.foto.url }}" class= "imagen_detalle">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 borde_detalles" >
+        <form class="form-horizontal" action="/cart/add/224301" method="post" enctype="multipart/form-data" name="buy">
+            <div class="form-group price_elem row">
+              <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio:</label>
+              <div class="col-sm-8 col-md-9">
+                <span class="product-form-price" id="product-form-price">${{ producto.valorneto }} clp</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Quantity" class="col-sm-3 col-md-3 form-control-label">Stock: {{ producto.cantidad }}</label>
+              <div class="col-sm-8 col-md-9">
+               
+                <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5" value="1">
+              </div>
+            </div>
+
+            <!-- Out of Stock -->
+            <div class="form-group product-stock product-out-stock row hidden">
+              <label class="col-sm-3 col-md-3 form-control-label">Detalle:</label>
+              <div class="col-sm-8 col-md-9">
+                <p>{{ producto.descripcion }}</p>
+            </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    
+  
+  </div>
+{% endfor %}
+{% endblock %}
