@@ -24,6 +24,16 @@ def Prod_list(request):
     return render(request, 'celu/Productos.html', {'productos': productos}
     )
 
+def Prod_list_Celular(request):
+    productos = Producto.objects.filter(Tipo = 1)
+    return render(request, 'celu/Productos.html', {'productos': productos}
+    )
+def Prod_list_Accesorio(request):
+    productos = Producto.objects.filter(Tipo = 2)
+    return render(request, 'celu/Productos.html', {'productos': productos}
+    )
+
+
 
 def Login_list2(request):
     form = AuthenticationForm()

@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.Celu_home, name='Celu_Home'),
     path('Prod_list', views.Prod_list , name = 'Prod_list'),
+    path('Prod_list_Celular', views.Prod_list_Celular , name = 'Prod_list_Celular'),
+    path('Prod_list_Accesorio', views.Prod_list_Accesorio , name = 'Prod_list_Accesorio'),
     re_path('Login_list2', views.Login_list2 , name = 'Login_list2'),
     re_path('Registro', views.Registro, name='Registro'),
     path('PerfilEdit/<int:user_id>', views.PerfilEdit, name='PerfilEdit'),
