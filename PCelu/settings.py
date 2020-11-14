@@ -134,5 +134,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
 
 LOGIN_URL= reverse_lazy('Login_list2')
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
