@@ -12,4 +12,3 @@ $('#Registrar').click(function (){
 $('#Loguearse').click(function (){
     location.href ="Login_list2";
 });
-

@@ -61,7 +61,10 @@ ROOT_URLCONF = 'PCelu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            './templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +76,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'PCelu.wsgi.application'
 
 
@@ -131,3 +133,5 @@ MEDIA_URL = '/Celulares/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
 
 LOGIN_URL= reverse_lazy('Login_list2')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
