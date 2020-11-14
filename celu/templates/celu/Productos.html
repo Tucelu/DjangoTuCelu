@@ -5,16 +5,19 @@
 {%endblock%}
 {% block content %}
 <div class="album py-5">
-    <h1>Catálogo de Accesorios</h1>        
+    <h1>Catálogo</h1>        
     <div class="container">
         <div class="row">  
-            
-            {%for accesorio in accesorios%}
+            <form action="/" method="POST">
+                <input type="submit" name="Tipo" value="Tipo" style="width: 90px" />
+                {% csrf_token %}
+            </form>
+            {%for producto in productos%}
             <div class="col-md-4">
                <div class="card mb-4 shadow-sm">
-                    <img src="{{ accesorio.foto.url }}" class="Imagentelefonos" >
+                    <img src="{{ producto.foto.url }}" class="Imagentelefonos" >
                     <div class="card-body">
-                        <p class="card-text" _msthash="1893060" _msttexthash="14015339">{{accesorio.Nombre}}</p>
+                        <p class="card-text" _msthash="1893060" _msttexthash="14015339">{{producto.nombre}}</p>
                     </div>  
                 </div>
             </div>  

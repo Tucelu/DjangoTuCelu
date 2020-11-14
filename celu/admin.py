@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Celular
-from .models import Accesorios
+from .models import Producto
+from .models import Tipo
 # Register your models here.
  
-admin.site.register(Celular)
-admin.site.register(Accesorios)
+admin.site.register(Producto)
+admin.site.register(Tipo)

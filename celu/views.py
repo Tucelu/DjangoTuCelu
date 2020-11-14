@@ -1,11 +1,11 @@
 from django.http import request
 from django.shortcuts import render
-from .models import Celular
+from .models import Producto
 from django.utils import timezone
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
 from django.shortcuts import redirect
-from celu.models import Accesorios
+
 from .forms import PersonaForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -19,13 +19,10 @@ from django.contrib import messages
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
-def Celu_list(request):
-    celulares = Celular.objects.all()
-    return render(request, 'celu/Celu.html', {'celulares': celulares})
-
-def Acce_list(request):
-    accesorios = Accesorios.objects.all()
-    return render(request, 'celu/Accesorios.html', {'accesorios': accesorios})
+def Prod_list(request):
+    productos = Producto.objects.all()
+    return render(request, 'celu/Productos.html', {'productos': productos}
+    )
 
 
 def Login_list2(request):

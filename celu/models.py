@@ -4,40 +4,31 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Celular(models.Model):
+class Producto(models.Model):
     receptor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    modelo = models.CharField(max_length=200)
-    marca = models.CharField(max_length=200)
-    sistemaoperativo = models.CharField(max_length=200)
-    color = models.CharField(max_length=50)
-    descripcion = models.TextField(max_length=200, null=True)
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(max_length=500, null=True)
     cantidad = models.IntegerField()
     valorneto = models.IntegerField()
-    fecharecepcion = models.DateField(blank=True, null=True)
-    foto = models.ImageField(upload_to= 'Celulares')
+    foto = models.ImageField(upload_to= 'Producto')
+    Tipo = models.ForeignKey('celu.Tipo', on_delete=models.CASCADE)
 
     def publish(self):
         self.fecharecepcion = timezone.now()
         self.save()
 
     def __str__(self):
-        return self.modelo
+        return self.nombre
 
 
-class Accesorios(models.Model):
-    receptor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    Nombre = models.CharField(max_length=200)
-    color = models.CharField(max_length=50)
-    descripcion = models.TextField(max_length=200, null=True)
-    cantidad = models.IntegerField()
-    valorneto = models.IntegerField()
-    fecharecepcion = models.DateField(blank=True, null=True)
-    foto = models.ImageField(upload_to= 'Accesorios')
+class Tipo(models.Model):
+    Tipo = models.CharField(max_length=20)
 
     def publish(self):
         self.fecharecepcion = timezone.now()
         self.save()
 
     def __str__(self):
-        return self.Nombre
+        return self.Tipo
+
 
