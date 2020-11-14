@@ -109,7 +109,7 @@ def PerfilEdit(request, user_id):
 
 #D = DELETE
 @login_required
-def delete(request, user_id):
+def Delete(request, user_id):
     # Recuperamos la instancia de la persona y la borramos
     instancia = User.objects.get(id=user_id)
     instancia.delete()

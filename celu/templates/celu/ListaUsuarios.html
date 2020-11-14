@@ -16,7 +16,7 @@
           {%if usuario.is_superuser == 0 %}
           
           <label for="" class="formulario__label">{{ usuario.username }} 
-          <a href="/Delete/{{ usuario.id }}" 
+            <a class="boton_eliminar" href="/Delete/{{ usuario.id }}" 
           onClick="return confirm('¿Seguro que quieres borrar a {{usuario.username}}?');">
             Borrar
           </a>
