@@ -40,7 +40,7 @@
                 
                     <a href="/PerfilEdit/{{ user.id }}"><img src="{% static 'picture/common/Logueado.png' %}" class = "Login_logo"></a>
                     {%if user.is_superuser == 1%}
-                    <a href="{% url 'ListaUsuarios' %}"><img src="{% static 'picture/common/libro.png' %}" class = "Login_logo"></a>
+                      <a href="{% url 'ListaUsuarios' %}"><img src="{% static 'picture/common/libro.png' %}" class = "Login_logo"></a>
                     {% endif %}
 
                 {%else %} 
