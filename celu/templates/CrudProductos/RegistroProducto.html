@@ -1,0 +1,37 @@
+{% extends 'celu/base.html' %}
+{% load static %}
+{%block background%}
+<body background="{% static 'picture/common/Fondo_LoginReg.jpg'%}">
+{%endblock%}
+
+{% block content %}
+<div>
+  <div id="Formulario_Registro">
+    <form action="" class="formulario" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <h1 class="formulario__titulo">Registro de productos</h1>
+        <br>
+        <br>
+        <input type="username" class= "formulario__input" name = 'nombre'>
+        <label for="" class="formulario__label">Nombre</label>
+        <label for="" class="formulario__label2">Descripcion</label>
+        <textarea class="formulario__input" cols="61" rows="2" name ='descripcion'></textarea> 
+        <input type="number" class= "formulario__input" name = 'cantidad'>
+        <label for="" class="formulario__label">Cantidad</label>
+        <input type="number" class= "formulario__input" name = 'valorneto'>
+        <label for="" class="formulario__label">Valorneto</label>
+        <input type="file" accept="image/*" class= "formulario__input" name ='foto'>
+        <select name="Tipo" class="formulario__input">
+          <option>Celular</option>
+          <option>Accesorio</option>
+        </select>
+        <label for="" class="formulario__label">Tipo</label>
+
+        <input type="submit" class= "formulario__submit" value=Registrar>
+        {% if form.errors %}
+        <label for="" class="formulario__label" style="color:#FF0000" >Verifique que los datos esten bien...</label>
+        {% endif %}
+    </form>
+  </div>
+</div>
+{%endblock%}

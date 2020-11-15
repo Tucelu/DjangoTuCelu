@@ -1,6 +1,6 @@
 from django.http import request
 from django.shortcuts import render
-from .models import Producto
+from .models import Producto, Tipo
 from django.utils import timezone
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
@@ -128,3 +128,27 @@ def delete(request, user_id):
 
     # Después redireccionamos de nuevo a la lista
     return redirect('/')
+#C = Create --- Productos
+
+def RegistroProducto(request, user_id):
+    tiposubida = int
+
+    if request.POST:
+        producto = Producto()
+        tiposubida = User.objects.get(id= user_id)
+        producto.receptor = tiposubida
+        producto.nombre = request.POST.get('nombre')
+        producto.descripcion = request.POST.get('descripcion')
+        producto.cantidad = request.POST.get('cantidad')
+        producto.valorneto = request.POST.get('valorneto')
+        producto.foto = request.FILES.get('foto')
+        if (request.POST.get('Tipo') == 'Celular'):
+            tiposubida = 1
+        else:
+            tiposubida  = 2
+        producto.Tipo = Tipo.objects.get(id = tiposubida )
+
+        producto.save()
+        
+        
+    return render(request, "CrudProductos/RegistroProducto.html")
