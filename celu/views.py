@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from celu import forms
 from django.contrib import messages
+import os
 
 
 
@@ -21,18 +22,15 @@ def Celu_home(request):
 
 def Prod_list(request):
     productos = Producto.objects.all()
-    return render(request, 'celu/Productos.html', {'productos': productos})
-
-def Detalle_producto(request):
-    return render(request, 'celu/Detalle_producto.html')
+    return render(request, 'CrudProductos/ReadProductos.html', {'productos': productos})
 
 def Prod_list_Celular(request):
     productos = Producto.objects.filter(Tipo = 1)
-    return render(request, 'celu/Productos.html', {'productos': productos})
+    return render(request, 'CrudProductos/ReadProductos.html', {'productos': productos})
 
 def Prod_list_Accesorio(request):
     productos = Producto.objects.filter(Tipo = 2)
-    return render(request, 'celu/Productos.html', {'productos': productos})
+    return render(request, 'CrudProductos/ReadProductos.html', {'productos': productos})
 
 def Detalle_producto(request, Producto_id):
     producto = Producto.objects.filter(id = Producto_id)
@@ -130,7 +128,8 @@ def delete(request, user_id):
     return redirect('/')
 #C = Create --- Productos
 
-def RegistroProducto(request, user_id):
+@login_required
+def CreateProducto(request, user_id):
     tiposubida = int
 
     if request.POST:
@@ -151,4 +150,40 @@ def RegistroProducto(request, user_id):
         producto.save()
         
         
-    return render(request, "CrudProductos/RegistroProducto.html")
+    return render(request, "CrudProductos/CreateProducto.html")
+
+def UpdateProducto(request, user_id, producto_id):
+
+    Productoamodificar = Producto.objects.filter(id = producto_id)
+    tiposubida = int
+    productotemporal = Producto()
+    if request.POST:
+        for productoo in Productoamodificar:
+            productoo.pk = producto_id
+
+            tiposubida = User.objects.get(id= user_id)
+
+            productoo.receptor = tiposubida
+
+            productoo.nombre = request.POST.get('nombre')
+
+            productoo.descripcion = request.POST.get('descripcion')
+
+            productoo.cantidad = request.POST.get('cantidad')
+            
+            productoo.valorneto = request.POST.get('valorneto')
+
+            if request.FILES.get('foto') != None:
+                productoo.foto = request.FILES.get('foto')
+
+
+            if (request.POST.get('Tipo') == 'Celular'):
+                tiposubida = 1
+            else:
+                tiposubida  = 2
+            productoo.Tipo = Tipo.objects.get(id = tiposubida )
+
+            productoo.save()
+    return render(request, "CrudProductos/UpdateProducto.html",{'Productoamodificar': Productoamodificar})
+
+
