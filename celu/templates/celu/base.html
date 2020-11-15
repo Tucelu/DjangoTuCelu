@@ -33,10 +33,10 @@
               <form class="form-inline mt-2 mt-md-0">
 
               <img src="{% static 'picture/common/icono_carrito.jpg' %}" class = "Login_logo"> 
-                {%if user.is_authenticated %}  
+                {% if user.is_authenticated %}  
                 
                     <a href="/PerfilEdit/{{ user.id }}"><img src="{% static 'picture/common/Logueado.png' %}" class = "Login_logo"></a>
-                    {%if user.is_superuser == 1%}
+                    {% if user.is_superuser == 1%}
                       <a href="{% url 'ListaUsuarios' %}"><img src="{% static 'picture/common/libro.png' %}" class = "Login_logo"></a>
                       <a href="/CreateProducto/{{ user.id }}"><img src="{% static 'picture/common/nube.png' %}" class = "Login_logo"></a>
                     {% endif %}
