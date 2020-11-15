@@ -148,10 +148,10 @@ def CreateProducto(request, user_id):
         producto.Tipo = Tipo.objects.get(id = tiposubida )
 
         producto.save()
-        
+        return redirect('/')
         
     return render(request, "CrudProductos/CreateProducto.html")
-
+@login_required
 def UpdateProducto(request, user_id, producto_id):
 
     Productoamodificar = Producto.objects.filter(id = producto_id)
@@ -170,7 +170,7 @@ def UpdateProducto(request, user_id, producto_id):
             productoo.descripcion = request.POST.get('descripcion')
 
             productoo.cantidad = request.POST.get('cantidad')
-            
+
             productoo.valorneto = request.POST.get('valorneto')
 
             if request.FILES.get('foto') != None:
@@ -184,6 +184,7 @@ def UpdateProducto(request, user_id, producto_id):
             productoo.Tipo = Tipo.objects.get(id = tiposubida )
 
             productoo.save()
+            return redirect('/')
     return render(request, "CrudProductos/UpdateProducto.html",{'Productoamodificar': Productoamodificar})
 
 
