@@ -1,0 +1,33 @@
+{% extends 'celu/base.html' %}
+{% load static %}
+{%block background%}
+<body background="{% static 'picture/common/Fondo-blanco.jpg'%}">
+{%endblock%}
+{% block content %}
+<div class="album py-5">
+    <h1>Catálogo</h1>
+    <a href="{% url 'Prod_list' %}" class="btn btn-success">  Todos  </a>   
+    <a href="{% url 'Prod_list_Celular' %}" class="btn btn-success">Celulares</a>   
+    <a href="{% url 'Prod_list_Accesorio' %}" class="btn btn-success">Accesorios</a> <br><br>
+    <div class="container">
+        <div class="row">  
+            {%for producto in productos%}
+            <div class="col-md-4">
+               <div class="card mb-4 shadow-sm">
+                    <img src="{{ producto.foto.url }}" class="Imagentelefonos" >
+                    <div class="card-body">
+                        <p class="card-text" _msthash="1893060" _msttexthash="14015339">{{ producto.nombre }}</p>
+                        <a href="/Detalle_producto/{{ producto.id }}"  class="btn btn-success">Detalle</a> 
+                        {%if user.is_superuser == 1%}
+                            <a href="/UpdateProducto/{{ user.id }}/{{ producto.id }}"  class="btn btn-success">Editar</a> 
+                            <a href="/DeleteProducto/{{ producto.id }}"  class="btn btn-success">Eliminar</a>
+                        {% endif %}
+                    </div>  
+                </div>
+            </div>  
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

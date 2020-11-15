@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuCelu: Smartphones & Accesorios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap_theme.mim.css">
+    <link rel="stylesheet" href="{% static 'css/celu.css' %}">
+    <link rel="Icon" href="{% static 'picture/common/logo.Ico' %}">
+</head>
+{%block background%}
+{%endblock%}
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top navbarestructura1">
+          <img src="{% static 'picture/common/logo.png' %}" class="Logo" >    
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto lista">
+                <li class="nav-item titulo">
+                  <a>TuCelu.Cl - </a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Celu_Home' %}">Inicio</a>
+                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Prod_list' %}">Productos</a>
+                </li>
+              </ul>
+              <form class="form-inline mt-2 mt-md-0">
+
+              <img src="{% static 'picture/common/icono_carrito.jpg' %}" class = "Login_logo"> 
+                {%if user.is_authenticated %}  
+                
+                    <a href="/PerfilEdit/{{ user.id }}"><img src="{% static 'picture/common/Logueado.png' %}" class = "Login_logo"></a>
+                    {%if user.is_superuser == 1%}
+                      <a href="{% url 'ListaUsuarios' %}"><img src="{% static 'picture/common/libro.png' %}" class = "Login_logo"></a>
+                      <a href="/CreateProducto/{{ user.id }}"><img src="{% static 'picture/common/nube.png' %}" class = "Login_logo"></a>
+                    {% endif %}
+
+                {%else %} 
+                <a href="{% url 'Login_list2' %}"><img src="{% static 'picture/common/Login_logo.png' %}" class = "Login_logo"></a>
+                {% endif %} 
+              </form>
+            </div>  
+        </nav>
+    </header>
+      {% block content %}
+      {% endblock %}
+    <footer>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-bottom navbarestructura2">
+            <p>SERVICIO AL CLIENTE
+              •Términos y Condiciones
+              •Privacidad y Seguridad
+              •Orden de Servicio
+              •Términos y Condiciones Servicio de Garantía Daño y Robo
+              •Representante Legal
+              •Bases y Promociones
+              •Términos y Condiciones Servicio de Garantía Extendida
+            </p>
+          </nav>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+            <script src= "{% static 'javascripts\script.js' %}"></script>
+    </footer>
+</body>
+</html>
