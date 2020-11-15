@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.Celu_home, name='Celu_Home'),
     path('Prod_list', views.Prod_list , name = 'Prod_list'),
     path('Detalle_producto/<int:Producto_id>', views.Detalle_producto , name = 'Detalle_producto'),
+    path('DeleteProducto/<int:Producto_id>', views.DeleteProducto , name = 'DeleteProducto'),
     path('UpdateProducto/<int:user_id>/<int:producto_id>', views.UpdateProducto , name = 'UpdateProducto'),
     path('CreateProducto/<int:user_id>', views.CreateProducto , name = 'CreateProducto'),
     path('Prod_list_Celular', views.Prod_list_Celular , name = 'Prod_list_Celular'),

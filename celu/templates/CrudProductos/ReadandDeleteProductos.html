@@ -19,7 +19,8 @@
                         <p class="card-text" _msthash="1893060" _msttexthash="14015339">{{ producto.nombre }}</p>
                         <a href="/Detalle_producto/{{ producto.id }}"  class="btn btn-success">Detalle</a> 
                         {%if user.is_superuser == 1%}
-                        <a href="/UpdateProducto/{{ user.id }}/{{ producto.id }}"  class="btn btn-success">Editar</a> 
+                            <a href="/UpdateProducto/{{ user.id }}/{{ producto.id }}"  class="btn btn-success">Editar</a> 
+                            <a href="/DeleteProducto/{{ producto.id }}"  class="btn btn-success">Eliminar</a>
                         {% endif %}
                     </div>  
                 </div>

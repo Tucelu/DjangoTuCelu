@@ -20,9 +20,6 @@ import os
 def Celu_home(request):
     return render(request, 'celu/Tucelu.html')
 
-def Prod_list(request):
-    productos = Producto.objects.all()
-    return render(request, 'CrudProductos/ReadProductos.html', {'productos': productos})
 
 def Prod_list_Celular(request):
     productos = Producto.objects.filter(Tipo = 1)
@@ -95,7 +92,8 @@ def Registro(request):
 def ListaUsuarios(request):
     usuario = User.objects.all()
     context = {'usuario': usuario}
-    return render(request, 'celu/ListaUsuarios.html', context)  
+    return render(request, 'celu/ListaUsuarios.html', context)
+
 #U = UPDATE
 @login_required
 def PerfilEdit(request, user_id):
@@ -126,8 +124,9 @@ def delete(request, user_id):
 
     # Después redireccionamos de nuevo a la lista
     return redirect('/')
-#C = Create --- Productos
 
+
+#C = Create --- Productos
 @login_required
 def CreateProducto(request, user_id):
     tiposubida = int
@@ -151,6 +150,12 @@ def CreateProducto(request, user_id):
         return redirect('/')
         
     return render(request, "CrudProductos/CreateProducto.html")
+#R = Read --- Productos
+def Prod_list(request):
+    productos = Producto.objects.all()
+    return render(request, 'CrudProductos/ReadandDeleteProductos.html', {'productos': productos})
+
+#U = Update --- Productos
 @login_required
 def UpdateProducto(request, user_id, producto_id):
 
@@ -187,4 +192,12 @@ def UpdateProducto(request, user_id, producto_id):
             return redirect('/')
     return render(request, "CrudProductos/UpdateProducto.html",{'Productoamodificar': Productoamodificar})
 
+#D = Delete --- Productos
+@login_required
+def DeleteProducto(request, Producto_id):
+    # Recuperamos la instancia de la persona y la borramos
+    producto = Producto.objects.get(id=Producto_id)
+    producto.delete()
 
+    # Después redireccionamos de nuevo a la lista
+    return redirect('Prod_list')
