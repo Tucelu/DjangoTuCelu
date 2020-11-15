@@ -31,4 +31,16 @@ class Tipo(models.Model):
     def __str__(self):
         return self.Tipo
 
+class DetalleProducto(models.Model):
+    Cliente_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    Producto_id = models.ForeignKey('celu.DetalleProducto', on_delete=models.CASCADE)
+    Total = models.IntegerField(null=True)
+    CantidadCompras = models.IntegerField(null=True)
+
+    def publish(self):
+        self.fecharecepcion = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.Total
 
