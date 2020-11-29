@@ -24,6 +24,7 @@ from celu import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'products', views.ProductoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
