@@ -16,5 +16,5 @@ urlpatterns = [
     path('PerfilEdit/<int:user_id>', views.PerfilEdit, name='PerfilEdit'),
     path('Logout', views.logout, name='Logout'),
     re_path('ListaUsuarios', views.ListaUsuarios, name='ListaUsuarios'),
-    re_path('Delete/<int:user_id>', views.delete, name='Delete'),
+    path('Delete/<int:user_id>', views.delete, name='Delete'),
 ]
