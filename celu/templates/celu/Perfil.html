@@ -11,7 +11,13 @@
       <h1 class="formulario__titulo">Perfil</h1>
       <br>
       <br>
-      <button type="button" class="btn btn-success" id="Editar">Editar</button>
+      {% for log in backends.associated%}
+        {% if log.provider == 'facebook' %}
+
+        {% else %}
+          <button type="button" class="btn btn-success" id="Editar">Editar</button>
+        {% endif %}
+      {% endfor %}
       <a href="{% url 'Logout' %}" class="btn btn-success">Cerrar sesion</a>
     </div>
   </div>

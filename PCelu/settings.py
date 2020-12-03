@@ -29,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+SOCIAL_AUTH_FACEBOOK_KEY = '2717659291779855'
+SOCIAL_AUTH_FACEBOOK_SECRET = '600b3322e78a5e8a3926886980f78b61'
+
 
 # Application definition
 
@@ -39,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'celu' # agrega aplicacion a la solucion
+    'celu', # agrega aplicacion a la solucion
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
 ]
 
 ROOT_URLCONF = 'PCelu.urls'
@@ -68,11 +74,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
 ]
 WSGI_APPLICATION = 'PCelu.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+'social_core.backends.facebook.FacebookOAuth2',
+'django.contrib.auth.backends.ModelBackend',
+)
+
 
 
 # Database
@@ -129,5 +144,7 @@ MEDIA_URL = '/picture/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
 
 LOGIN_URL= reverse_lazy('Login_list2')
+
+LOGIN_REDIRECT_URL = reverse_lazy('Celu_Home')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
