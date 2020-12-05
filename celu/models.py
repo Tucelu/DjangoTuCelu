@@ -12,6 +12,7 @@ class Producto(models.Model):
     valorneto = models.IntegerField()
     foto = models.ImageField(upload_to= 'Producto')
     Tipo = models.ForeignKey('celu.Tipo', on_delete=models.CASCADE)
+    detalle_id = models.ForeignKey('celu.DetalleProducto', on_delete=models.CASCADE, null=True)
 
     def publish(self):
         self.fecharecepcion = timezone.now()
@@ -32,10 +33,9 @@ class Tipo(models.Model):
         return self.Tipo
 
 class DetalleProducto(models.Model):
-    Cliente_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    Producto_id = models.ForeignKey('celu.DetalleProducto', on_delete=models.CASCADE)
     Total_iva = models.IntegerField(null=True)
     CantidadCompras = models.IntegerField(null=True)
+    Cliente_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def publish(self):
         self.fecharecepcion = timezone.now()
