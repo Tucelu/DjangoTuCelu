@@ -6,14 +6,12 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login, logout as do_logout, authenticate
 from django.shortcuts import redirect
 from .forms import PersonaForm
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from celu import forms
 from django.contrib import messages
 import os
-from rest_framework import viewsets
-from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer, ProductosSerializer
+
 
 
 # Create your views here.
@@ -202,17 +200,3 @@ def DeleteProducto(request, Producto_id):
 
     # Después redireccionamos de nuevo a la lista
     return redirect('Prod_list')
-
-
-#vista basada en clases de serializers
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
-class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.all()
-    serializer_class = ProductosSerializer

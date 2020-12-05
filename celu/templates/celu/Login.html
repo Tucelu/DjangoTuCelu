@@ -17,12 +17,13 @@
         <input type="password" class= "formulario__input" name = 'password'>
         <label for="" class="formulario__label">Contraseña</label>
         <input type="submit" class= "formulario__submit" value="Login">
+        <a class= "formulario__submit2" href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
         {% if form.errors %}
         <label for="" class="formulario__label" style="color:#FF0000" >Usuario o contraseña incorrecta.</label>
         {% endif %}
 
         <button type="button" id="Registrar">¿No tienes cuenta?</button>
-        <a class="nav-link" href="{% url 'password_reset' %}">Recuperar Contraseña</a>
+        <a type="button" href="{% url 'password_reset' %}">Recuperar Contraseña</a>
     </form>
     
   </div>
