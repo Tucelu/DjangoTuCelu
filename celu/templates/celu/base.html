@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap_theme.mim.css">
     <link rel="stylesheet" href="{% static 'css/celu.css' %}">
     <link rel="Icon" href="{% static 'picture/common/logo.Ico' %}">
+
+    {% load pwa %}
+    {% progressive_web_app_meta %}
 </head>
 {%block background%}
 {%endblock%}

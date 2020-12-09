@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'celu', # agrega aplicacion a la solucion
+<<<<<<< HEAD
     'social_django'
+=======
+    'social_django',
+    'pwa',
+>>>>>>> Ariel
 ]
 
 MIDDLEWARE = [
@@ -138,7 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'celu/static')
 
 MEDIA_URL = '/picture/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'celu/static/picture')
@@ -148,3 +153,27 @@ LOGIN_URL= reverse_lazy('Login_list2')
 LOGIN_REDIRECT_URL = reverse_lazy('Celu_Home')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+PWA_APP_NAME = 'TuCelu'
+
+PWA_APP_DESCRIPTION = 'Venta online de dispositivos mobiles y accesorios'
+
+PWA_APP_TEME_COLOR = '#ffffff'
+
+PWA_APP_BACKGROUND_COLOR = '#000000'
+
+PWA_APP_ICONS = [
+    {
+        'src' : '/static/picture/common/logo2.PNG',
+        'sizes' : '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src' : '/static/picture/common/logo2.PNG',
+        'sizes' : '160x160'
+    }
+]
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'celu/static/javascripts/serviceworker.js')

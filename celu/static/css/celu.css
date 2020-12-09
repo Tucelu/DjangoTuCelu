@@ -5,7 +5,6 @@ body{
     width: 100px;
     height: 100px;
 }
-
 .Login_logo{
     width: 100px;
     height: 100px;
@@ -109,6 +108,7 @@ body{
     margin-top: 4cm;
     margin-bottom: 5cm;
 }
+
 .carousel-caption{
     color:rgb(134, 7, 7);
     text-align: center;
@@ -116,6 +116,7 @@ body{
     font-family: fantasy;
     margin-bottom: 15%;
 }
+
 .card{
     border: solid;
     border-color: black;
@@ -161,4 +162,14 @@ body{
 }
 .titulo_arriba{
     padding-bottom: 3cm;
+}
+.offlionescreen{
+    text-align: center;
+    border: solid;
+    color: grey;
+    background-color: black;
+    margin-left: 2cm;
+    margin-right: 2cm;
+    margin-top: 4cm;
+    margin-bottom: 5cm;
 }

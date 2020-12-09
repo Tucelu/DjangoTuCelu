@@ -23,6 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('celu.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),
+<<<<<<< HEAD
+=======
+    path('', include('pwa.urls')),
+>>>>>>> Ariel
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
