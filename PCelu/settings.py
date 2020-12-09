@@ -43,12 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'celu', # agrega aplicacion a la solucion
-<<<<<<< HEAD
-    'social_django'
-=======
     'social_django',
     'pwa',
->>>>>>> Ariel
 ]
 
 MIDDLEWARE = [

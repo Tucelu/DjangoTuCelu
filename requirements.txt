@@ -5,10 +5,7 @@ chardet==3.0.4
 cryptography==3.2.1        
 defusedxml==0.7.0rc1       
 Django==3.1
-<<<<<<< HEAD
-=======
 django-pwa==1.0.10
->>>>>>> Ariel
 djangorestframework==3.12.2
 gitdb==4.0.5
 GitPython==3.1.11
