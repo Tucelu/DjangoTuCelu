@@ -18,12 +18,22 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from celu import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'products', views.ProductoViewSet)
+router.register(r'Tipo', views.TipoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('celu.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('', include('pwa.urls')),
+    path('', include(router.urls)),
+    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
