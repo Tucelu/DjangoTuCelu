@@ -155,7 +155,7 @@ PWA_APP_NAME = 'TuCelu'
 
 PWA_APP_DESCRIPTION = 'Venta online de dispositivos mobiles y accesorios'
 
-PWA_APP_TEME_COLOR = '#ffffff'
+PWA_APP_THEME_COLOR = '#ffffff'
 
 PWA_APP_BACKGROUND_COLOR = '#000000'
 
